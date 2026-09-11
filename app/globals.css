@@ -272,6 +272,20 @@ body {
   line-height: 1;
 }
 
+.nav-logo-mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1), filter 0.4s ease;
+  filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.25));
+}
+
+.nav-logo:hover .nav-logo-mark {
+  transform: rotate(-5deg) scale(1.08);
+  filter: drop-shadow(0 0 16px rgba(196, 30, 58, 0.5));
+}
+
 .nav-logo-text {
   font-family: var(--font-road-rage);
   font-size: 1.8rem;

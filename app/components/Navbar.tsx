@@ -46,7 +46,8 @@ export default function Navbar() {
       >
         <div className="navbar-inner">
           <a href={onHome ? "#home" : "/"} className="nav-logo" data-cursor="link">
-            <span className="nav-logo-kanji">鍛</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="SAYA LABS Seal" className="nav-logo-mark" width={32} height={32} />
             <span className="nav-logo-text">SAYA LABS</span>
           </a>
 

@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   description:
     "A premium web agency forging extraordinary digital experiences. We blend timeless design philosophy with cutting-edge technology to create websites and brands that command attention.",
   keywords: "web agency, design studio, web development, branding, UI/UX, digital experiences",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "SAYA LABS — Digital Craft Studio",
     description: "Forging extraordinary digital experiences with precision and artistry.",

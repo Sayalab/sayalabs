@@ -80,7 +80,7 @@ export default function Preloader() {
       <div className="preloader-grid" />
       <div className="preloader-stage">
         <span className="preloader-mask">
-          <span ref={kanji} className="preloader-kanji">鍛</span>
+          <span ref={kanji} className="preloader-kanji">鞘</span>
         </span>
         <div className="preloader-wordmark">
           <span className="preloader-mask">
