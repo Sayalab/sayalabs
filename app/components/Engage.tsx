@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 
@@ -12,8 +13,7 @@ const tiers = [
     desc: "End-to-end MERN / Next.js builds for funded startups and established brands.",
     list: ["Architecture → launch", "Design systems & SEO", "Dedicated team"],
     price: "By engagement",
-    mesh: "mesh-gradient--crimson",
-    field: "bg-line-grid",
+    image: "/images/tier_citadel.jpg",
   },
   {
     idx: "II",
@@ -23,8 +23,7 @@ const tiers = [
     desc: "A focused fix, a UI/UX overhaul or a single feature — shipped fast.",
     list: ["Single features", "Rescues & tuning", "Hourly / milestone"],
     price: "Hourly · milestone",
-    mesh: "mesh-gradient--gold",
-    field: "bg-dot-grid",
+    image: "/images/tier_blade.jpg",
   },
   {
     idx: "III",
@@ -34,9 +33,8 @@ const tiers = [
     desc: "World-changing idea, no capital? We build your early tech for partnership, not cash.",
     list: ["MVP for equity", "No upfront cost", "Founder-first"],
     price: "Shared upside",
-    mesh: "mesh-gradient--emerald",
-    field: "bg-dot-grid",
     feature: true,
+    image: "/images/tier_seed.jpg",
   },
   {
     idx: "IV",
@@ -46,8 +44,7 @@ const tiers = [
     desc: "Keep your tech sharp — maintenance, security and iteration on a monthly retainer.",
     list: ["Monitoring & updates", "Continuous iteration", "Priority SLA"],
     price: "Monthly retainer",
-    mesh: "mesh-gradient--indigo",
-    field: "bg-line-grid",
+    image: "/images/tier_guard.jpg",
   },
 ];
 
@@ -77,8 +74,16 @@ export default function Engage() {
               className={`tier-card${t.feature ? " tier-card--feature" : ""}`}
               data-cursor="link"
             >
-              <div className={`tier-card__cap mesh-gradient mesh-gradient--animated ${t.mesh}`}>
-                <span className={`${t.field} bg-field-mask`} style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", opacity: 0.55 }} />
+              <div className="tier-card__cap">
+                <Image
+                  src={t.image}
+                  alt={t.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="tier-card__cap-img"
+                  style={{ objectFit: "cover" }}
+                />
+                <div className="tier-card__cap-veil" />
                 <span className="tier-card__idx">№ {t.idx}</span>
                 <span className="kanji">{t.kanji}</span>
               </div>

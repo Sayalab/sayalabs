@@ -18,8 +18,7 @@ type Tier = {
   desc: string;
   list: string[];
   price: string;
-  mesh: string;
-  field: string;
+  image: string;
   feature?: boolean;
 };
 
@@ -39,8 +38,7 @@ const tiers: Tier[] = [
       "Ongoing strategic partnership",
     ],
     price: "Engagement-based · scoped per project",
-    mesh: "mesh-gradient--crimson",
-    field: "bg-line-grid",
+    image: "/images/tier_citadel.jpg",
   },
   {
     num: "II",
@@ -57,8 +55,7 @@ const tiers: Tier[] = [
       "Days-to-weeks turnaround",
     ],
     price: "Hourly · or fixed per milestone",
-    mesh: "mesh-gradient--gold",
-    field: "bg-dot-grid",
+    image: "/images/tier_blade.jpg",
   },
   {
     num: "III",
@@ -75,9 +72,8 @@ const tiers: Tier[] = [
       "Long-term alignment",
     ],
     price: "Partnership · shared upside",
-    mesh: "mesh-gradient--emerald",
-    field: "bg-dot-grid",
     feature: true,
+    image: "/images/tier_seed.jpg",
   },
   {
     num: "IV",
@@ -94,8 +90,7 @@ const tiers: Tier[] = [
       "Cancel anytime",
     ],
     price: "From a fixed monthly retainer",
-    mesh: "mesh-gradient--indigo",
-    field: "bg-line-grid",
+    image: "/images/tier_guard.jpg",
   },
 ];
 
@@ -158,8 +153,15 @@ export default function WorkWithUs() {
           {tiers.map((t) => (
             <RevealOnScroll key={t.num} y={40}>
               <article className={`tier-row${t.feature ? " tier-row--feature" : ""}`}>
-                <div className={`tier-row__visual mesh-gradient mesh-gradient--animated ${t.mesh}`}>
-                  <span className={`${t.field} bg-field-mask`} style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", opacity: 0.55 }} />
+                <div className="tier-row__visual">
+                  <Image
+                    src={t.image}
+                    alt={t.name}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 40vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className="tier-card__cap-veil" />
                   <span className="tier-row__num">№ {t.num}</span>
                   <span className="kanji">{t.kanji}</span>
                 </div>

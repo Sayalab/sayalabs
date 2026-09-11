@@ -4269,12 +4269,36 @@ html.preloading body {
 }
 .tier-card__cap {
   position: relative;
-  height: 132px;
+  height: 140px;
   margin: -32px -28px 26px;
   display: flex;
   align-items: flex-end;
   padding: 22px 28px;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.tier-card__cap-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+  z-index: 0;
+}
+.tier-card:hover .tier-card__cap-img {
+  transform: scale(1.08);
+}
+.tier-card__cap-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.72) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.tier-card:hover .tier-card__cap-veil {
+  opacity: 0.5;
 }
 .tier-card__cap .kanji {
   position: relative;
