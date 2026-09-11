@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,41 +13,46 @@ if (typeof window !== "undefined") {
 }
 
 const featured = {
-  image: "/images/portfolio_1.png",
-  category: "Featured Project / 2026",
-  client: "NEO TOKYO STUDIO",
-  title: "A digital identity for the new avant-garde",
-  desc: "Complete brand world, art direction, and a custom-built site with WebGL transitions. From identity to launch in eight weeks.",
+  image: "/images/proj_2.png",
+  category: "Featured Project · Open Source",
+  client: "CAREER PILOT",
+  title: "AI-powered career operating system with 120+ stars & 750+ forks",
+  desc: "Full-stack career acceleration platform featuring resume optimization, real-time mock interviews, job pipeline analytics, and autonomous GitHub developer intelligence.",
+  url: "https://github.com/anurag3407/career-pilot",
 };
 
 const projects = [
   {
-    image: "/images/portfolio_2.png",
-    category: "Mobile Commerce",
-    name: "ENSŌ COLLECTION",
-    desc: "Luxury mobile shopping experience guided by Japanese minimalism.",
+    image: "/images/proj_1.png",
+    category: "Cloud Infrastructure",
+    name: "STORINARY",
+    desc: "Self-hosted high-performance media storage & CDN engine engineered for low-latency delivery.",
     aspect: "tall" as const,
+    url: "https://github.com/anurag3407/storinary",
   },
   {
-    image: "/images/portfolio_3.png",
-    category: "Marketplace",
-    name: "WABI-SABI MARKET",
-    desc: "Artisan marketplace with immersive product pages and editorial discovery.",
+    image: "/images/proj_3.png",
+    category: "Developer Tooling",
+    name: "BAD CODE POLICE",
+    desc: "Autonomous AI reviewer monitoring GitHub repositories to catch vulnerabilities and bugs.",
     aspect: "wide" as const,
+    url: "https://github.com/anurag3407/Code-police",
   },
   {
-    image: "/images/portfolio_bg.png",
-    category: "Brand Identity",
-    name: "ZEN GARDENS",
-    desc: "Sustained visual language for a luxury wellness brand.",
+    image: "/images/portfolio_1.png",
+    category: "Creative Tech · 3D",
+    name: "3D STUDIO BUILDER",
+    desc: "AI agent architecture for building immersive scroll-driven 3D web experiences.",
     aspect: "square" as const,
+    url: "https://github.com/anurag3407/interactive-3d-website-skill",
   },
   {
-    image: "/images/about_bg.png",
-    category: "Editorial Site",
-    name: "FORGE QUARTERLY",
-    desc: "A long-form publication for craftsmen, makers, and contrarians.",
+    image: "/images/portfolio_2.png",
+    category: "Venture AI",
+    name: "GHOSTFOUNDER",
+    desc: "All-in-one AI platform transforming startup ideas into validated MVPs and roadmaps.",
     aspect: "tall" as const,
+    url: "https://github.com/anurag3407/ghosthunter",
   },
 ];
 
@@ -108,7 +114,14 @@ export default function Portfolio() {
 
         <div className="portfolio-divider">— Featured engagement —</div>
 
-        <a className="portfolio-featured" href="#contact" data-cursor="text" data-cursor-label="VIEW CASE">
+        <a
+          className="portfolio-featured"
+          href={featured.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor="text"
+          data-cursor-label="GITHUB"
+        >
           <Image
             src={featured.image}
             alt={featured.client}
@@ -133,9 +146,11 @@ export default function Portfolio() {
           <div className="portfolio-asym__col">
             <a
               className={`portfolio-card portfolio-card--${projects[0].aspect}`}
-              href="#contact"
+              href={projects[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cursor="text"
-              data-cursor-label="VIEW"
+              data-cursor-label="GITHUB"
             >
               <Image
                 src={projects[0].image}
@@ -152,9 +167,11 @@ export default function Portfolio() {
             </a>
             <a
               className={`portfolio-card portfolio-card--${projects[1].aspect}`}
-              href="#contact"
+              href={projects[1].url}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cursor="text"
-              data-cursor-label="VIEW"
+              data-cursor-label="GITHUB"
             >
               <Image
                 src={projects[1].image}
@@ -173,9 +190,11 @@ export default function Portfolio() {
           <div className="portfolio-asym__col">
             <a
               className={`portfolio-card portfolio-card--${projects[2].aspect}`}
-              href="#contact"
+              href={projects[2].url}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cursor="text"
-              data-cursor-label="VIEW"
+              data-cursor-label="GITHUB"
             >
               <Image
                 src={projects[2].image}
@@ -192,9 +211,11 @@ export default function Portfolio() {
             </a>
             <a
               className={`portfolio-card portfolio-card--${projects[3].aspect}`}
-              href="#contact"
+              href={projects[3].url}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cursor="text"
-              data-cursor-label="VIEW"
+              data-cursor-label="GITHUB"
             >
               <Image
                 src={projects[3].image}
@@ -210,6 +231,14 @@ export default function Portfolio() {
               </div>
             </a>
           </div>
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: "64px" }}>
+          <RevealOnScroll y={20}>
+            <Link href="/projects" className="btn-secondary" data-cursor="link">
+              View Complete Archive (8 Projects) →
+            </Link>
+          </RevealOnScroll>
         </div>
       </div>
     </section>

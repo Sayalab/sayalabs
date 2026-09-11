@@ -24,72 +24,83 @@ type Project = {
   name: string;
   desc: string;
   span: "wide" | "half" | "third";
+  url?: string;
+  stats?: string;
 };
 
 const projects: Project[] = [
   {
     image: "/images/proj_2.png",
-    cat: "Web App · Fintech",
+    cat: "Full-Stack AI Platform · Career OS",
     year: "2026",
-    name: "MERIDIAN",
-    desc: "A real-time trading & portfolio dashboard — dense data made calm, fast and legible.",
+    name: "CAREER PILOT",
+    desc: "An open-source AI-powered career OS — resume optimization, real-time mock interviews, job tracking, and GitHub developer intelligence.",
     span: "wide",
+    url: "https://github.com/anurag3407/career-pilot",
+    stats: "★ 129 · 750+ Forks",
   },
   {
     image: "/images/proj_1.png",
-    cat: "E-Commerce · Fashion",
+    cat: "Cloud Infrastructure · Media CDN",
     year: "2026",
-    name: "ATELIER NOIR",
-    desc: "A luxury fashion house online — editorial product storytelling with WebGL transitions.",
+    name: "STORINARY",
+    desc: "High-performance, self-hosted media storage & CDN engine engineered for low-latency image delivery, on-the-fly transformations, and enterprise asset caching.",
     span: "half",
+    url: "https://github.com/anurag3407/storinary",
   },
   {
     image: "/images/proj_3.png",
-    cat: "Hospitality · Restaurant",
-    year: "2025",
-    name: "KAISEKI",
-    desc: "A fine-dining reservation experience steeped in stillness, season and ceremony.",
+    cat: "Developer Tooling · AI Agent",
+    year: "2026",
+    name: "BAD CODE POLICE",
+    desc: "Autonomous GitHub code review agent that continuously monitors repositories via webhooks to detect security flaws, performance degradation, and style regressions.",
     span: "half",
+    url: "https://github.com/anurag3407/Code-police",
   },
   {
     image: "/images/portfolio_1.png",
-    cat: "Brand Identity",
+    cat: "Creative Tech · WebGL / R3F",
     year: "2026",
-    name: "NEO TOKYO STUDIO",
-    desc: "A complete identity for the new avant-garde — from logotype to a custom-built site.",
+    name: "3D STUDIO BUILDER",
+    desc: "An AI agent skill architecture for generating production-ready scroll-driven 3D web experiences using Next.js, React Three Fiber, and GSAP ScrollTrigger.",
     span: "third",
+    url: "https://github.com/anurag3407/interactive-3d-website-skill",
   },
   {
     image: "/images/portfolio_2.png",
-    cat: "Mobile Commerce",
-    year: "2025",
-    name: "ENSŌ",
-    desc: "Luxury mobile shopping guided by Japanese minimalism and a single, perfect circle.",
+    cat: "Venture AI · Startup Accelerator",
+    year: "2026",
+    name: "GHOSTFOUNDER",
+    desc: "All-in-one AI platform for startup teams — transforming rough concepts into validated MVPs, automated investor pitch decks, and actionable product roadmaps.",
     span: "third",
+    url: "https://github.com/anurag3407/ghosthunter",
   },
   {
     image: "/images/portfolio_3.png",
-    cat: "Marketplace",
-    year: "2025",
-    name: "WABI-SABI MARKET",
-    desc: "An artisan marketplace with immersive product pages and editorial discovery.",
+    cat: "Design System · UI Library",
+    year: "2026",
+    name: "VENGEANCE UI",
+    desc: "Curated collection of high-performance animated React & Tailwind components designed to make modern landing pages subtle, tasteful, and memorable.",
     span: "third",
+    url: "https://github.com/anurag3407/VengenceUI",
   },
   {
     image: "/images/proj_4.png",
-    cat: "Web3 · Brand",
+    cat: "Systems Engineering · Rust",
     year: "2026",
-    name: "PRISM PROTOCOL",
-    desc: "A bold on-chain brand — kinetic 3D identity and a landing built to convert believers.",
+    name: "CLAURST",
+    desc: "Blazing-fast agentic coding platform built in Rust for builders who ship — zero-overhead execution, memory safety, and autonomous task orchestration.",
     span: "half",
+    url: "https://github.com/anurag3407/claurst",
   },
   {
     image: "/images/about_bg.png",
-    cat: "Editorial · Publication",
+    cat: "Civic Tech · Decentralized",
     year: "2025",
-    name: "FORGE QUARTERLY",
-    desc: "A long-form publication for craftsmen, makers and contrarians. Words given room.",
+    name: "JUSTICE TRACK",
+    desc: "Modern legal navigation platform addressing judicial backlog and case transparency through accessible digital interfaces and decentralized audit trails.",
     span: "half",
+    url: "https://github.com/anurag3407/Justice",
   },
 ];
 
@@ -154,10 +165,12 @@ export default function ProjectsPage() {
           {projects.map((p, i) => (
             <a
               key={p.name}
-              href="/#contact"
+              href={p.url || "/#contact"}
+              target={p.url ? "_blank" : undefined}
+              rel={p.url ? "noopener noreferrer" : undefined}
               className={`project-card project-card--${p.span}`}
               data-cursor="text"
-              data-cursor-label="VIEW"
+              data-cursor-label={p.url ? "GITHUB" : "VIEW"}
             >
               <Image
                 src={p.image}
@@ -170,7 +183,14 @@ export default function ProjectsPage() {
               <div className="project-card__overlay">
                 <div className="project-card__top">
                   <span className="project-card__cat">{p.cat}</span>
-                  <span className="project-card__idx">№ {String(i + 1).padStart(2, "0")}</span>
+                  <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                    {p.stats && (
+                      <span style={{ fontFamily: "var(--font-heading)", fontSize: "0.82rem", color: "var(--gold)", letterSpacing: "1px" }}>
+                        {p.stats}
+                      </span>
+                    )}
+                    <span className="project-card__idx">№ {String(i + 1).padStart(2, "0")}</span>
+                  </div>
                 </div>
                 <div className="project-card__bottom">
                   <span className="project-card__year">{p.year}</span>
