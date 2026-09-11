@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import HeroStory from "./components/HeroStory";
 import Services from "./components/Services";
-import About from "./components/About";
 import Process from "./components/Process";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
@@ -47,8 +46,6 @@ export default function Home() {
       <MarqueeStrip variant="services" speed={50} direction="right" />
 
       <Path />
-
-      <About />
 
       <Engage />
 
